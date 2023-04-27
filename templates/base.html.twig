@@ -28,9 +28,11 @@
                 Crud User
             </a>
             </li>
-
-            
-            
+            <li class="nav-item">
+            <a href="{{path('app_shipment_details_index')}}"class="nav-link">
+                Crud ShippingDetails
+            </a>
+            </li>
              {% if app.user %}
                   <div class="mb-3">
                    You are logged in as {{ app.user.name }}, <a href="{{ path('app_logout') }}">Logout</a>

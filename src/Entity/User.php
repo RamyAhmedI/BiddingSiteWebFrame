@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -27,11 +29,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $makeComment = null;
+    #[ORM\OneToMany(mappedBy: 'makecomment', targetEntity: MakeComment::class)]
+    private Collection $makeComments;
 
-    #[ORM\Column(length: 255)]
-    private ?string $shipmentDetails = null;
+    public function __construct()
+    {
+        $this->makeComments = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -108,27 +112,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function getMakeComment(): ?string
-    {
-        return $this->makeComment;
-    }
 
-    public function setMakeComment(string $makeComment): self
-    {
-        $this->makeComment = $makeComment;
-
-        return $this;
-    }
-
-    public function getShipmentDetails(): ?string
-    {
-        return $this->shipmentDetails;
-    }
-
-    public function setShipmentDetails(string $shipmentDetails): self
-    {
-        $this->shipmentDetails = $shipmentDetails;
-
-        return $this;
-    }
+ 
 }
