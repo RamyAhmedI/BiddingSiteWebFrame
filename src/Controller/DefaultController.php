@@ -13,6 +13,7 @@ class DefaultController extends AbstractController
     {
         $template = 'default/index.html.twig';
         $args = [];
+
         return $this->render($template, $args);
     }
 }

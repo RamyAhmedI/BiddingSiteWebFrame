@@ -16,9 +16,6 @@ class Phone
     #[ORM\Column(length: 255)]
     private ?string $Model = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $OSType = null;
-
     #[ORM\Column]
     private ?int $memory = null;
 
@@ -62,18 +59,6 @@ class Phone
     public function setManufacturer(?Make $manufacturer): self
     {
         $this->manufacturer = $manufacturer;
-
-        return $this;
-    }
-
-    public function getOSType(): ?string
-    {
-        return $this->OSType;
-    }
-
-    public function setOSType(string $OSType): self
-    {
-        $this->Model = $OSType;
 
         return $this;
     }

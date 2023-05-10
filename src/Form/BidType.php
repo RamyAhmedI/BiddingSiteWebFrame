@@ -2,26 +2,26 @@
 
 namespace App\Form;
 
-use App\Entity\Phone;
+use App\Entity\Bid;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PhoneType extends AbstractType
+class BidType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('Model')
-            ->add('memory')
-            ->add('manufacturer')
+            ->add('Date')
+            ->add('Cancel')
+            ->add('Time')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Phone::class,
+            'data_class' => Bid::class,
         ]);
     }
 }
