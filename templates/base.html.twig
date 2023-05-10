@@ -25,21 +25,28 @@
     </head>
     <body>
 
-    <nav>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3">
+        <div class="collapse navbar-collapse" id="mobile-nav">
+            <ul class="navbar-nav ml-auto">
         <ul>
             <li>
-                <a href="/">
+                <a href="{{path('homepage')}}" class="nav-link">
                     home
                 </a>
             </li>
             <li>
-                <a href="{{ url('app_make_index') }}">
-                    CRUD make
+                <a href="{{ url('app_make_index') }}"class="nav-link">
+                   Admin
                 </a>
             </li>
             <li>
-                <a href="{{ url('app_phone_index') }}">
-                    CRUD phone
+                <a href="{{ url('app_phone_index') }}"class="nav-link">
+                    phones
+                </a>
+            </li>
+            <li>
+                <a href="/user" class="nav-link">
+                    Login
                 </a>
             </li>
         </ul>
