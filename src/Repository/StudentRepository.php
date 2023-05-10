@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\ShipmentDetails;
+use App\Entity\Student;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<ShipmentDetails>
+ * @extends ServiceEntityRepository<Student>
  *
- * @method ShipmentDetails|null find($id, $lockMode = null, $lockVersion = null)
- * @method ShipmentDetails|null findOneBy(array $criteria, array $orderBy = null)
- * @method ShipmentDetails[]    findAll()
- * @method ShipmentDetails[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Student|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Student|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Student[]    findAll()
+ * @method Student[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ShipmentDetailsRepository extends ServiceEntityRepository
+class StudentRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, ShipmentDetails::class);
+        parent::__construct($registry, Student::class);
     }
 
-    public function save(ShipmentDetails $entity, bool $flush = false): void
+    public function save(Student $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class ShipmentDetailsRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(ShipmentDetails $entity, bool $flush = false): void
+    public function remove(Student $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class ShipmentDetailsRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return ShipmentDetails[] Returns an array of ShipmentDetails objects
+//     * @return Student[] Returns an array of Student objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class ShipmentDetailsRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?ShipmentDetails
+//    public function findOneBySomeField($value): ?Student
 //    {
 //        return $this->createQueryBuilder('s')
 //            ->andWhere('s.exampleField = :val')

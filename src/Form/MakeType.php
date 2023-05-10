@@ -2,25 +2,24 @@
 
 namespace App\Form;
 
-use App\Entity\MakeComment;
+use App\Entity\Make;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class MakeCommentType extends AbstractType
+class MakeType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('comment')
-            ->add('makecomment')
+            ->add('name')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => MakeComment::class,
+            'data_class' => Make::class,
         ]);
     }
 }

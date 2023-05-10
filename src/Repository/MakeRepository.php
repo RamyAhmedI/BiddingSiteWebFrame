@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\MakeComment;
+use App\Entity\Make;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<MakeComment>
+ * @extends ServiceEntityRepository<Make>
  *
- * @method MakeComment|null find($id, $lockMode = null, $lockVersion = null)
- * @method MakeComment|null findOneBy(array $criteria, array $orderBy = null)
- * @method MakeComment[]    findAll()
- * @method MakeComment[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Make|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Make|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Make[]    findAll()
+ * @method Make[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class MakeCommentRepository extends ServiceEntityRepository
+class MakeRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, MakeComment::class);
+        parent::__construct($registry, Make::class);
     }
 
-    public function save(MakeComment $entity, bool $flush = false): void
+    public function save(Make $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class MakeCommentRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(MakeComment $entity, bool $flush = false): void
+    public function remove(Make $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class MakeCommentRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return MakeComment[] Returns an array of MakeComment objects
+//     * @return Make[] Returns an array of Make objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class MakeCommentRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?MakeComment
+//    public function findOneBySomeField($value): ?Make
 //    {
 //        return $this->createQueryBuilder('m')
 //            ->andWhere('m.exampleField = :val')

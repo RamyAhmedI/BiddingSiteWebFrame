@@ -2,28 +2,24 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\MakeComment;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
-
 use App\Factory\UserFactory;
-use App\Factory\ShipmentDetailsFactory;
+use App\Factory\PhoneFactory;
+use App\Factory\MakeFactory;
+
+use App\Factory\CampusFactory;
+use App\Factory\StudentFactory;
 
 class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        $matt = UserFactory::createOne([
+        UserFactory::createOne([
             'username' => 'matt',
             'password' => 'smith',
             'role' => 'ROLE_ADMIN'
-        ]);
-
-        $simon = UserFactory::createOne([
-            'username' => 'simon',
-            'password' => 'murphy',
-            'role' => 'ROLE_USER'
         ]);
 
         UserFactory::createOne([
@@ -32,19 +28,44 @@ class AppFixtures extends Fixture
             'role' => 'ROLE_ADMIN'
         ]);
 
-        ShipmentDetailsFactory::createOne([
-            'address' => 'Dublin',
-            'price' => 200,
-            'productName' => 'TV',
-            'user' => $simon
+
+        MakeFactory::createOne(['name' => 'Apple']);
+        MakeFactory::createOne(['name' => 'Samsung']);
+        MakeFactory::createOne(['name' => 'Sony']);
+
+        PhoneFactory::createOne([
+            'model' => 'iPhone X',
+            'memory' => '128',
+            'manufacturer' => MakeFactory::find(['name' => 'Apple']),
         ]);
 
-        ShipmentDetailsFactory::createOne([
-            'address' => 'Cork',
-            'price' => 400,
-            'productName' => 'TV',
-            'user' => $matt
+        PhoneFactory::createOne([
+            'model' => 'Galaxy 21',
+            'memory' => '256',
+            'manufacturer' => MakeFactory::find(['name' => 'Samsung']),
         ]);
 
+        $blanchCampus = CampusFactory::createOne(['location' => 'Blanchardstown']);
+        $tallaghtCampus = CampusFactory::createOne(['location' => 'Tallaght']);
+        $cityCampus = CampusFactory::createOne(['location' => 'City']);
+
+        StudentFactory::createOne([
+            'age' => 21,
+            'name' => 'Matt Smith',
+            'campus' => $blanchCampus
+        ]);
+
+        StudentFactory::createOne([
+            'age' => 96,
+            'name' => 'Granny Smith',
+            'campus' => $blanchCampus
+        ]);
+
+        // illustrate a "find" for property value to link to another object ...
+        StudentFactory::createOne([
+            'age' => 19,
+            'name' => 'Sinead Mullen',
+            'campus' => CampusFactory::find(['location' => 'Tallaght']),
+        ]);
     }
 }
