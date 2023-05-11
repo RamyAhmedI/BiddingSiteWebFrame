@@ -2,25 +2,24 @@
 
 namespace App\Form;
 
-use App\Entity\Bid;
+use App\Entity\MakeComment;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class BidType extends AbstractType
+class MakeCommentType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('bidStatus')
-            ->add('bidAmount')
+            ->add('MakeComment')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Bid::class,
+            'data_class' => MakeComment::class,
         ]);
     }
 }

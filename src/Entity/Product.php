@@ -2,10 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\PhoneRepository;
+use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: PhoneRepository::class)]
+#[ORM\Entity(repositoryClass: ProductRepository::class)]
 class Product
 {
     #[ORM\Id]
@@ -14,51 +14,111 @@ class Product
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Model = null;
+    private ?string $productName = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $productMake = null;
 
     #[ORM\Column]
-    private ?int $memory = null;
+    private ?int $productStorageSize = null;
 
-    #[ORM\ManyToOne(inversedBy: 'phones')]
-    private ?Make $manufacturer = null;
+    #[ORM\Column(length: 255)]
+    private ?string $productOS = null;
 
-    public function getName(): ?int
+    #[ORM\Column(length: 255)]
+    private ?string $bidStatus = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?float $bidAmount = null;
+
+    #[ORM\Column]
+    private ?float $price = null;
+
+    public function getId(): ?int
     {
-        return $this->name;
+        return $this->id;
     }
 
-    public function getMake(): ?string
+    public function getProductName(): ?string
     {
-        return $this->Make;
+        return $this->productName;
     }
 
-    public function setMake(string $Make): self
+    public function setProductName(string $productName): self
     {
-        $this->Make = $Make;
+        $this->productName = $productName;
 
         return $this;
     }
 
-    public function getStorageSize(): ?int
+    public function getProductMake(): ?string
     {
-        return $this->storagesize;
+        return $this->productMake;
     }
 
-    public function setStorageSize(int $storagesize): self
+    public function setProductMake(string $productMake): self
     {
-        $this->storagesize = $storagesize;
+        $this->productMake = $productMake;
 
         return $this;
     }
 
-    public function getOSSystem(): ?Make
+    public function getProductStorageSize(): ?int
     {
-        return $this->OSSystem;
+        return $this->productStorageSize;
     }
 
-    public function setOSSystem(?Make $OSSystem): self
+    public function setProductStorageSize(int $productStorageSize): self
     {
-        $this->OSSystem = $OSSystem;
+        $this->productStorageSize = $productStorageSize;
+
+        return $this;
+    }
+
+    public function getProductOS(): ?string
+    {
+        return $this->productOS;
+    }
+
+    public function setProductOS(string $productOS): self
+    {
+        $this->productOS = $productOS;
+
+        return $this;
+    }
+
+    public function getBidStatus(): ?string
+    {
+        return $this->bidStatus;
+    }
+
+    public function setBidStatus(string $bidStatus): self
+    {
+        $this->bidStatus = $bidStatus;
+
+        return $this;
+    }
+
+    public function getBidAmount(): ?float
+    {
+        return $this->bidAmount;
+    }
+
+    public function setBidAmount(?float $bidAmount): self
+    {
+        $this->bidAmount = $bidAmount;
+
+        return $this;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(float $price): self
+    {
+        $this->price = $price;
 
         return $this;
     }

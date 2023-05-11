@@ -15,6 +15,8 @@ class PhoneType extends AbstractType
             ->add('Model')
             ->add('memory')
             ->add('manufacturer')
+            ->add('OSType')
+            ->add('Price')
         ;
     }
 

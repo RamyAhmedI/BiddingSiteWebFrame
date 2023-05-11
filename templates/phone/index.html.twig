@@ -11,7 +11,10 @@
                 <th>Id</th>
                 <th>Model</th>
                 <th>Memory</th>
+                <th>OSType</th>
+                <th>Price</th>
                 <th>Manufacturer</th>
+
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,6 +24,10 @@
                 <td>{{ phone.id }}</td>
                 <td>{{ phone.Model }}</td>
                 <td>{{ phone.memory }}</td>
+                <td>{{ phone.OSType }}</td>
+                <td>{{ phone.Price }}</td>
+
+
                 <td>
                     <a href="{{ path('app_make_show', {'id': phone.manufacturer.id}) }}">{{ phone.manufacturer.name }}</a>
 
