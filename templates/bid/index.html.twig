@@ -9,8 +9,9 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>BidStatus</th>
-                <th>BidAmount</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Time</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -18,8 +19,9 @@
         {% for bid in bids %}
             <tr>
                 <td>{{ bid.id }}</td>
-                <td>{{ bid.bidStatus }}</td>
-                <td>{{ bid.bidAmount }}</td>
+                <td>{{ bid.Date }}</td>
+                <td>{{ bid.Cancel }}</td>
+                <td>{{ bid.Time }}</td>
                 <td>
                     <a href="{{ path('app_bid_show', {'id': bid.id}) }}">show</a>
                     <a href="{{ path('app_bid_edit', {'id': bid.id}) }}">edit</a>
@@ -27,7 +29,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="5">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

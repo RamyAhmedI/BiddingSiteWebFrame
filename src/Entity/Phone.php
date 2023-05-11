@@ -16,12 +16,6 @@ class Phone
     #[ORM\Column(length: 255)]
     private ?string $Model = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $OSType = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $Price = null;
-
     #[ORM\Column]
     private ?int $memory = null;
 
@@ -65,30 +59,6 @@ class Phone
     public function setManufacturer(?Make $manufacturer): self
     {
         $this->manufacturer = $manufacturer;
-
-        return $this;
-    }
-
-    public function getOSType(): ?string
-    {
-        return $this->OSType;
-    }
-
-    public function setOSType(string $OSType): self
-    {
-        $this->OSType = $OSType;
-
-        return $this;
-    }
-
-    public function getPrice(): ?string
-    {
-        return $this->Price;
-    }
-
-    public function setPrice(string $Price): self
-    {
-        $this->Price = $Price;
 
         return $this;
     }

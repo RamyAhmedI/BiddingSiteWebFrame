@@ -25,32 +25,52 @@
     </head>
     <body>
 
-    <nav>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3">
+        <div class="collapse navbar-collapse" id="mobile-nav">
+            <ul class="navbar-nav ml-auto">
+
         <ul>
+            <style>
+
+
+            </style>
             <li>
-                <a href="/">
+                <a href="{{path('homepage')}}" class="nav-link">
                     home
                 </a>
             </li>
+            {% if is_granted('ROLE_Admin') %}
             <li>
-                <a href="{{ url('app_product_index') }}">
-                    Products Listingss
+                <a href="{{ url('app_make_index') }}"class="nav-link" id="new_admin_link">
+                   Admin
                 </a>
             </li>
+            {% endif %}
+
+
             <li>
-                <a href="{{ url('app_make_comment_index') }}">
-                    Forum
+                <a href="{{ url('app_phone_index') }}"class="nav-link">
+                    phones
                 </a>
             </li>
+
+
             <li>
-                <a href="{{ url('app_shipping_details_index') }}">
-                    Shipping Details
-                </a>
-            </li>
-            <li>
-                <a href="/user">
+                <a href="/user" class="nav-link">
                     Login
                 </a>
+            </li>
+            <li>
+                <a href="/logout" class="nav-link">
+                    Logout
+                </a>
+            </li>
+            <li>
+                <a href="/bid" class="nav-link">
+                    Bid Status
+                </a>
+
+            </li>
             </li>
         </ul>
     </nav>

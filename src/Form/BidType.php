@@ -12,8 +12,9 @@ class BidType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('bidStatus')
-            ->add('bidAmount')
+            ->add('Date')
+            ->add('Cancel')
+            ->add('Time')
         ;
     }
 
