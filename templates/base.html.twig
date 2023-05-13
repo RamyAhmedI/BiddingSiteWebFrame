@@ -66,14 +66,12 @@
 
                 </a>
             </li>
-
-                <
             <li>
                 <a href="{{ url('app_make_index') }}" style = "color:#FFFFFF" >
                     CRUD make
                 </a>
             </li>
-<<<<<<< HEAD
+
             <li class="nav-item">
             <a href="{{path('app_purchase_details_index')}}"class="nav-link">
                 Crud PurchaseDetails
@@ -85,13 +83,17 @@
             </a>
             </li>
 
+            <li class="nav-item">
+            <a href="{{path('app_bid_index')}}"class="nav-link">
+                Crud Bidding Page
+            </a>
+            </li>
 
              {% if app.user %}
                   <div class="mb-3">
                    You are logged in as {{ app.user.name }}, <a href="{{ path('app_logout') }}">Logout</a>
                   </div>
              {% endif %}
-=======
             <li>
                 <a href="{{ url('app_phone_index') }}" style = "color:#FFFFFF">
                     Phones
@@ -108,7 +110,6 @@
                         Bid Status
                     </a>
                 </li>
->>>>>>> 37a5ef554987307b34576f141c9208980cfd5716
         </ul>
     </nav>
 

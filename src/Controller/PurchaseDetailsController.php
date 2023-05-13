@@ -10,10 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-
 #[Route('/purchase/details')]
-#[IsGranted('ROLE_USER')]
 class PurchaseDetailsController extends AbstractController
 {
     #[Route('/', name: 'app_purchase_details_index', methods: ['GET'])]

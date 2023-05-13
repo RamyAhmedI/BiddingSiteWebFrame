@@ -47,7 +47,6 @@ final class MakeCommentFactory extends ModelFactory
     protected function getDefaults(): array
     {
         return [
-            'comment' => self::faker()->text(255),
         ];
     }
 

@@ -22,6 +22,9 @@ class Bid
     #[ORM\Column]
     private ?int $Time = null;
 
+    #[ORM\ManyToOne]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Bid
     public function setTime(int $Time): self
     {
         $this->Time = $Time;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
