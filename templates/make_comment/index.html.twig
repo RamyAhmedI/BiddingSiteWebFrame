@@ -3,21 +3,19 @@
 {% block title %}MakeComment index{% endblock %}
 
 {% block body %}
-    <h1>MakeComment index</h1>
+    <h1>Forum</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Comment</th>
+                <th>Comments</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for make_comment in make_comments %}
             <tr>
-                <td>{{ make_comment.id }}</td>
-                <td>{{ make_comment.comment }}</td>
+                <td>{{ make_comment.MakeComment }}</td>
                 <td>
                     <a href="{{ path('app_make_comment_show', {'id': make_comment.id}) }}">show</a>
                     <a href="{{ path('app_make_comment_edit', {'id': make_comment.id}) }}">edit</a>

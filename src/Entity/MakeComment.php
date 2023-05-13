@@ -13,37 +13,22 @@ class MakeComment
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $comment = null;
-
-    #[ORM\ManyToOne]
-    private ?User $makecomment = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $MakeComment = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getComment(): ?string
+    public function getMakeComment(): ?string
     {
-        return $this->comment;
+        return $this->MakeComment;
     }
 
-    public function setComment(string $comment): self
+    public function setMakeComment(?string $MakeComment): self
     {
-        $this->comment = $comment;
-
-        return $this;
-    }
-
-    public function getMakecomment(): ?User
-    {
-        return $this->makecomment;
-    }
-
-    public function setMakecomment(?User $makecomment): self
-    {
-        $this->makecomment = $makecomment;
+        $this->MakeComment = $MakeComment;
 
         return $this;
     }

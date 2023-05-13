@@ -2,30 +2,35 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\MakeComment;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
-
 use App\Factory\UserFactory;
+<<<<<<< HEAD
 use App\Factory\PurchaseDetailsFactory;
 use App\Factory\MakeCommentFactory;
 
+=======
+use App\Factory\PhoneFactory;
+use App\Factory\MakeFactory;
+use App\Entity\Bid;
+>>>>>>> 37a5ef554987307b34576f141c9208980cfd5716
 
 class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        $matt = UserFactory::createOne([
+        $bid1 = new Bid();
+        $bid1->setDate("19/04/2023");
+        $bid1->setCancel("ongoing");
+        $bid1->setTime("3");
+
+        $manager->persist($bid1);
+
+        UserFactory::createOne([
             'username' => 'matt',
             'password' => 'smith',
             'role' => 'ROLE_ADMIN'
-        ]);
-
-        $simon = UserFactory::createOne([
-            'username' => 'simon',
-            'password' => 'murphy',
-            'role' => 'ROLE_USER'
         ]);
 
         UserFactory::createOne([
@@ -34,6 +39,7 @@ class AppFixtures extends Fixture
             'role' => 'ROLE_ADMIN'
         ]);
 
+<<<<<<< HEAD
         PurchaseDetailsFactory::createOne([
             'address' => 'Dublin',
             'price' => 200,
@@ -49,7 +55,30 @@ class AppFixtures extends Fixture
         MakeCommentFactory::createOne([
             'comment' => 'Hi',
             'makecomment' => $matt
+=======
+        UserFactory::createOne([
+            'username' => 'Andrew Fan',
+            'password' => 'Ihatethis',
+            'role' => 'ROLE_ADMIN'
         ]);
 
+
+        MakeFactory::createOne(['name' => 'Apple']);
+        MakeFactory::createOne(['name' => 'Samsung']);
+        MakeFactory::createOne(['name' => 'Sony']);
+
+        PhoneFactory::createOne([
+            'model' => 'iPhone X',
+            'memory' => '128',
+            'manufacturer' => MakeFactory::find(['name' => 'Apple']),
+>>>>>>> 37a5ef554987307b34576f141c9208980cfd5716
+        ]);
+
+        PhoneFactory::createOne([
+            'model' => 'Galaxy 21',
+            'memory' => '256',
+            'manufacturer' => MakeFactory::find(['name' => 'Samsung']),
+        ]);
     }
+
 }
