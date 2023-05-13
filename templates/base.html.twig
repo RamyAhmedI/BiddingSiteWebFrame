@@ -29,10 +29,17 @@
             </a>
             </li>
             <li class="nav-item">
-            <a href="{{path('app_shipment_details_index')}}"class="nav-link">
-                Crud ShippingDetails
+            <a href="{{path('app_purchase_details_index')}}"class="nav-link">
+                Crud PurchaseDetails
             </a>
             </li>
+            <li class="nav-item">
+            <a href="{{path('app_make_comment_index')}}"class="nav-link">
+                Crud Make a Comment
+            </a>
+            </li>
+
+
              {% if app.user %}
                   <div class="mb-3">
                    You are logged in as {{ app.user.name }}, <a href="{{ path('app_logout') }}">Logout</a>

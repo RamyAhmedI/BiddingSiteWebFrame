@@ -2,12 +2,12 @@
 
 namespace App\Form;
 
-use App\Entity\ShipmentDetails;
+use App\Entity\PurchaseDetails;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ShipmentDetailsType extends AbstractType
+class PurchaseDetailsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -15,14 +15,13 @@ class ShipmentDetailsType extends AbstractType
             ->add('productName')
             ->add('price')
             ->add('address')
-            ->add('user')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => ShipmentDetails::class,
+            'data_class' => PurchaseDetails::class,
         ]);
     }
 }

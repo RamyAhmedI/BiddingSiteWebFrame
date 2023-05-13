@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\ShipmentDetailsRepository;
+use App\Repository\PurchaseDetailsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ShipmentDetailsRepository::class)]
-class ShipmentDetails
+#[ORM\Entity(repositoryClass: PurchaseDetailsRepository::class)]
+class PurchaseDetails
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -21,9 +21,6 @@ class ShipmentDetails
 
     #[ORM\Column(length: 255)]
     private ?string $address = null;
-
-    #[ORM\ManyToOne]
-    private ?User $user = null;
 
     public function getId(): ?int
     {
@@ -62,18 +59,6 @@ class ShipmentDetails
     public function setAddress(string $address): self
     {
         $this->address = $address;
-
-        return $this;
-    }
-
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
 
         return $this;
     }

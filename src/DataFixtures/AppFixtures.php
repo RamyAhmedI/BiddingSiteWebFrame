@@ -8,7 +8,9 @@ use Doctrine\Persistence\ObjectManager;
 
 
 use App\Factory\UserFactory;
-use App\Factory\ShipmentDetailsFactory;
+use App\Factory\PurchaseDetailsFactory;
+use App\Factory\MakeCommentFactory;
+
 
 class AppFixtures extends Fixture
 {
@@ -32,18 +34,21 @@ class AppFixtures extends Fixture
             'role' => 'ROLE_ADMIN'
         ]);
 
-        ShipmentDetailsFactory::createOne([
+        PurchaseDetailsFactory::createOne([
             'address' => 'Dublin',
             'price' => 200,
             'productName' => 'TV',
-            'user' => $simon
         ]);
 
-        ShipmentDetailsFactory::createOne([
+        PurchaseDetailsFactory::createOne([
             'address' => 'Cork',
             'price' => 400,
             'productName' => 'TV',
-            'user' => $matt
+        ]);
+
+        MakeCommentFactory::createOne([
+            'comment' => 'Hi',
+            'makecomment' => $matt
         ]);
 
     }

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PurchaseDetails index{% endblock %}
+
+{% block body %}
+    <h1>PurchaseDetails index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>ProductName</th>
+                <th>Price</th>
+                <th>Address</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for purchase_detail in purchase_details %}
+            <tr>
+                <td>{{ purchase_detail.id }}</td>
+                <td>{{ purchase_detail.productName }}</td>
+                <td>{{ purchase_detail.price }}</td>
+                <td>{{ purchase_detail.address }}</td>
+                <td>
+                    <a href="{{ path('app_purchase_details_show', {'id': purchase_detail.id}) }}">show</a>
+                    <a href="{{ path('app_purchase_details_edit', {'id': purchase_detail.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_purchase_details_new') }}">Create new</a>
+{% endblock %}

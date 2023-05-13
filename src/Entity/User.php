@@ -32,6 +32,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'makecomment', targetEntity: MakeComment::class)]
     private Collection $makeComments;
 
+
     public function __construct()
     {
         $this->makeComments = new ArrayCollection();
@@ -111,7 +112,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
-
 
  
 }
