@@ -8,20 +8,14 @@ use Doctrine\Persistence\ObjectManager;
 use App\Factory\UserFactory;
 use App\Factory\PhoneFactory;
 use App\Factory\MakeFactory;
-use App\Entity\Bid;
+
+use App\Factory\CampusFactory;
+use App\Factory\StudentFactory;
 
 class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        $bid1 = new Bid();
-        $bid1->setDate("19/04/2023");
-        $bid1->setCancel("ongoing");
-        $bid1->setTime("3");
-
-        $manager->persist($bid1);
-
-
         UserFactory::createOne([
             'username' => 'matt',
             'password' => 'smith',
@@ -31,12 +25,6 @@ class AppFixtures extends Fixture
         UserFactory::createOne([
             'username' => 'john',
             'password' => 'doe',
-            'role' => 'ROLE_ADMIN'
-        ]);
-
-        UserFactory::createOne([
-            'username' => 'Andrew Fan',
-            'password' => 'Ihatethis',
             'role' => 'ROLE_ADMIN'
         ]);
 
@@ -56,6 +44,28 @@ class AppFixtures extends Fixture
             'memory' => '256',
             'manufacturer' => MakeFactory::find(['name' => 'Samsung']),
         ]);
-    }
 
+        $blanchCampus = CampusFactory::createOne(['location' => 'Blanchardstown']);
+        $tallaghtCampus = CampusFactory::createOne(['location' => 'Tallaght']);
+        $cityCampus = CampusFactory::createOne(['location' => 'City']);
+
+        StudentFactory::createOne([
+            'age' => 21,
+            'name' => 'Matt Smith',
+            'campus' => $blanchCampus
+        ]);
+
+        StudentFactory::createOne([
+            'age' => 96,
+            'name' => 'Granny Smith',
+            'campus' => $blanchCampus
+        ]);
+
+        // illustrate a "find" for property value to link to another object ...
+        StudentFactory::createOne([
+            'age' => 19,
+            'name' => 'Sinead Mullen',
+            'campus' => CampusFactory::find(['location' => 'Tallaght']),
+        ]);
+    }
 }

@@ -25,66 +25,83 @@
     </head>
     <body>
 
-    <nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3">
-        <div class="collapse navbar-collapse" id="mobile-nav">
-            <ul class="navbar-nav ml-auto">
+<nav class = "navbar navbar-expand-sm navbar-dark bg-primary mb-3">
+        <div class = "collapse navbar-collapse" id="mobile.nav">
+            <ul clas="navbar-nav ml-auto">
 
-        <ul>
             <style>
+                nav {
+                    text-align: center;
+                    margin: 0px 0 0 ;
+                    padding: 10px 0;
+                }
 
+                nav ul{
+                    list-style: none;
+                    margin: 0 2px;
+                    padding: 0;
+                }
+
+                nav li {
+                    display: inline-block;
+                    padding: 10px 65px;
+                }
+
+                nav a {
+                    font-weight: normal;
+                    padding: 10px 10px;
+                    font-size: 1.5em;
+                }
 
             </style>
 
-            <header>
-                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <p>Login as: {{ app.user.username }}</p>
-                <li>
-                    <a href="{{ url('app_logout') }}"class="nav-link">logout</a>
-                {% else %}
-                    <a href="{{ url('app_login') }}"class="nav-link">login</a>
-                {% endif %}
-                </li>
-                </header>
+
+
+
+
+        <ul>
             <li>
-                <a href="{{path('homepage')}}" class="nav-link">
-                    home
+                <a href="/" style = "color:#FFFFFF">
+                    Home
                 </a>
             </li>
-            {% if is_granted('ROLE_Admin') %}
             <li>
-                <a href="{{ url('app_make_index') }}"class="nav-link" id="new_admin_link">
-                    Admin
+                <a href="{{ url('app_product_index') }}"  style = "color:#FFFFFF">
+                    Products Listings
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('app_make_comment_index') }}"  style = "color:#FFFFFF">
+                    Forum
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('app_shipping_details_index') }}"  style = "color:#FFFFFF">
+                    Shipping Details
+                </a>
+            </li>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li>
+                    <a href="{{ url('app_logout') }}" style = "color:#FFFFFF">logout</a>
+                {% else %}
+                    <a href="{{ url('app_login') }}" style="color:#FFFFFF">login</a>
+                {% endif %}
+                </li>
+
+            {% if is_granted('ROLE_ADMIN') %}
+            <li>
+                <a href="{{ path('app_login') }}" style = "color:#FFFFFF">
+                    Manage Users
                 </a>
             </li>
             {% endif %}
 
-            </li>
-
-            <li>
-                <a href="{{ url('app_phone_index') }}"class="nav-link">
-                    phones
-                </a>
-            </li>
-
-            <li>
-                <a href="/bid" class="nav-link">
-                    Bid Status
-                </a>
-
-            </li>
-            </li>
-            </li>
-
-        </ul>
         </ul>
     </nav>
-
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    {% block body %}
-
-                    {% endblock %}
+                    {% block body %}{% endblock %}
                 </div>
             </div>
         </div>

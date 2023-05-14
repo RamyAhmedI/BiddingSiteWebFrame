@@ -17,7 +17,9 @@
             <tr>
                 <td>{{ make_comment.MakeComment }}</td>
                 <td>
+                {% if is_granted('ROLE_Admin') %}
                     <a href="{{ path('app_make_comment_show', {'id': make_comment.id}) }}">show</a>
+                {% endif %}    
                     <a href="{{ path('app_make_comment_edit', {'id': make_comment.id}) }}">edit</a>
                 </td>
             </tr>

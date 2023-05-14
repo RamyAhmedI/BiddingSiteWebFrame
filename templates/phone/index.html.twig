@@ -7,20 +7,14 @@
 
     <table class="table">
         <thead>
-        <style>
-            table, td, tr, th {
-                padding: 0.5rem;
-                margin: 0.5rem;
-            }
-            td {
-                border: solid black 0.1rem;
-            }
-        </style>
             <tr>
                 <th>Id</th>
                 <th>Model</th>
                 <th>Memory</th>
+                <th>OSType</th>
+                <th>Price</th>
                 <th>Manufacturer</th>
+
                 <th>actions</th>
             </tr>
         </thead>
@@ -30,6 +24,10 @@
                 <td>{{ phone.id }}</td>
                 <td>{{ phone.Model }}</td>
                 <td>{{ phone.memory }}</td>
+                <td>{{ phone.OSType }}</td>
+                <td>{{ phone.Price }}</td>
+
+
                 <td>
                     <a href="{{ path('app_make_show', {'id': phone.manufacturer.id}) }}">{{ phone.manufacturer.name }}</a>
 
@@ -38,7 +36,6 @@
                 <td>
                     <a href="{{ path('app_phone_show', {'id': phone.id}) }}">show</a>
                     <a href="{{ path('app_phone_edit', {'id': phone.id}) }}">edit</a>
-                    <a href="{{ path('app_bid_new', {'id': phone.id}) }}">bid</a>
                 </td>
             </tr>
         {% else %}

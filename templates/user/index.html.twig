@@ -24,7 +24,10 @@
                 <td>{{ user.password }}</td>
                 <td>
                     <a href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
+                    
+                    {% if is_granted('ROLE_ADMIN') %}
                     <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -34,8 +37,6 @@
         {% endfor %}
         </tbody>
     </table>
-    <button class="btn btn-lg btn-primary" type="submit">
-        <a href="{{ path('app_logout') }}">Logout</a>
-    </button>
+
     <a href="{{ path('app_user_new') }}">Create new</a>
 {% endblock %}

@@ -14,51 +14,36 @@ class Bid
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Date = null;
+    private ?string $bidStatus = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $Cancel = null;
-
-    #[ORM\Column]
-    private ?int $Time = null;
+    #[ORM\Column(nullable: true)]
+    private ?float $bidAmount = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getDate(): ?string
+    public function getBidStatus(): ?string
     {
-        return $this->Date;
+        return $this->bidStatus;
     }
 
-    public function setDate(string $Date): self
+    public function setBidStatus(string $bidStatus): self
     {
-        $this->Date = $Date;
+        $this->bidStatus = $bidStatus;
 
         return $this;
     }
 
-    public function getCancel(): ?string
+    public function getBidAmount(): ?float
     {
-        return $this->Cancel;
+        return $this->bidAmount;
     }
 
-    public function setCancel(string $Cancel): self
+    public function setBidAmount(?float $bidAmount): self
     {
-        $this->Cancel = $Cancel;
-
-        return $this;
-    }
-
-    public function getTime(): ?int
-    {
-        return $this->Time;
-    }
-
-    public function setTime(int $Time): self
-    {
-        $this->Time = $Time;
+        $this->bidAmount = $bidAmount;
 
         return $this;
     }

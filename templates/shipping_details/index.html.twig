@@ -13,7 +13,6 @@
                 <th>Email</th>
                 <th>Address</th>
                 <th>Product</th>
-                <th>Price</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -25,7 +24,6 @@
                 <td>{{ shipping_detail.email }}</td>
                 <td>{{ shipping_detail.address }}</td>
                 <td>{{ shipping_detail.product }}</td>
-                <td>{{ shipping_detail.price }}</td>
                 <td>
                     <a href="{{ path('app_shipping_details_show', {'id': shipping_detail.id}) }}">show</a>
                     <a href="{{ path('app_shipping_details_edit', {'id': shipping_detail.id}) }}">edit</a>

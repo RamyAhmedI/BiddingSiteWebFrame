@@ -2,25 +2,29 @@
 
 namespace App\Form;
 
-use App\Entity\Bid;
+use App\Entity\ShippingDetails;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class BidType extends AbstractType
+class ShippingDetailsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('bidStatus')
-            ->add('bidAmount')
+            ->add('name')
+            ->add('phone')
+            ->add('email')
+            ->add('address')
+            ->add('product')
+            ->add('price')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Bid::class,
+            'data_class' => ShippingDetails::class,
         ]);
     }
 }

@@ -9,10 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/phone')]
-
 class PhoneController extends AbstractController
 {
     #[Route('/', name: 'app_phone_index', methods: ['GET'])]
@@ -76,5 +74,11 @@ class PhoneController extends AbstractController
         }
 
         return $this->redirectToRoute('app_phone_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/bid', name: 'app_phone_bid', methods: ['GET', 'POST'])]
+    public function bid(): Response
+    {
+        return new Response('We are experimenting');
     }
 }

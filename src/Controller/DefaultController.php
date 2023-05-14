@@ -13,21 +13,6 @@ class DefaultController extends AbstractController
     {
         $template = 'default/index.html.twig';
         $args = [];
-
         return $this->render($template, $args);
-    }
-    #[Route('/bid', name: 'bid')]
-    public function bid(): Response
-    {
-        $template = 'bid/index.html.twig';
-        $args = [];
-        return $this->render($template,$args);
-    }
-    #[Route('/', name: 'Admin')]
-    public function make(): Response
-    {
-        $template = 'make/index.html.twig';
-        $args = [];
-        return $this->render($template,$args);
     }
 }
