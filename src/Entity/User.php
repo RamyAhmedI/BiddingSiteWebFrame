@@ -27,18 +27,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
-<<<<<<< HEAD
-    #[ORM\OneToMany(mappedBy: 'makecomment', targetEntity: MakeComment::class)]
-    private Collection $makeComments;
-
-
-    public function __construct()
-    {
-        $this->makeComments = new ArrayCollection();
-    }
-
-=======
->>>>>>> 37a5ef554987307b34576f141c9208980cfd5716
     public function getId(): ?int
     {
         return $this->id;
@@ -113,9 +101,4 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
-<<<<<<< HEAD
-
- 
-=======
->>>>>>> 37a5ef554987307b34576f141c9208980cfd5716
 }

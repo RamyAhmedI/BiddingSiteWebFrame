@@ -15,8 +15,6 @@
                 integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
                 crossorigin="anonymous"></script>
 
-        <link rel="stylesheet" href="/styles/app.css">
-
         {% block stylesheets %}
 {#            {{ encore_entry_link_tags('app') }}#}
         {% endblock %}
@@ -27,88 +25,57 @@
     </head>
     <body>
 
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3">
+        <div class="collapse navbar-collapse" id="mobile-nav">
+            <ul class="navbar-nav ml-auto">
 
-    <nav class = "navbar navbar-expand-sm navbar-dark bg-primary mb-3">
-        <div class = "collapse navbar-collapse" id="mobile.nav">
-            <ul clas="navbar-nav ml-auto">
-
+        <ul>
             <style>
-                body{
-                    background-color: white;
-                }
-                nav {
-                    text-align: center;
-                    margin: 0px 0 0 ;
-                    padding: 10px 0;
-                }
 
-                nav ul{
-                    list-style: none;
-                    margin: 0 2px;
-                    padding: 0;
-                }
-
-                nav li {
-                    display: inline-block;
-                    padding: 10px 65px;
-                }
-
-                nav a {
-                    font-weight: normal;
-                    padding: 10px 10px;
-                    font-size: 1.5em;
 
             </style>
 
-            <li>
-                <a href="/" style = "color:#FFFFFF" >
-                    Home Page
-
-                </a>
-            </li>
-
-                <
-            <li>
-                <a href="{{ url('app_make_index') }}" style = "color:#FFFFFF" >
-                    CRUD make
-                </a>
-            </li>
-<<<<<<< HEAD
-            <li class="nav-item">
-            <a href="{{path('app_purchase_details_index')}}"class="nav-link">
-                Crud PurchaseDetails
-            </a>
-            </li>
-            <li class="nav-item">
-            <a href="{{path('app_make_comment_index')}}"class="nav-link">
-                Crud Make a Comment
-            </a>
-            </li>
-
-
-             {% if app.user %}
-                  <div class="mb-3">
-                   You are logged in as {{ app.user.name }}, <a href="{{ path('app_logout') }}">Logout</a>
-                  </div>
-             {% endif %}
-=======
-            <li>
-                <a href="{{ url('app_phone_index') }}" style = "color:#FFFFFF">
-                    Phones
-                </a>
-            </li>
+            <header>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <p>Login as: {{ app.user.username }}</p>
                 <li>
-                    <a href = "/user" style = "color:#FFFFFF">
-                        Login
-                     </a>
+                    <a href="{{ url('app_logout') }}"class="nav-link">logout</a>
+                {% else %}
+                    <a href="{{ url('app_login') }}"class="nav-link">login</a>
+                {% endif %}
                 </li>
+                </header>
+            <li>
+                <a href="{{path('homepage')}}" class="nav-link">
+                    home
+                </a>
+            </li>
+            {% if is_granted('ROLE_Admin') %}
+            <li>
+                <a href="{{ url('app_make_index') }}"class="nav-link" id="new_admin_link">
+                    Admin
+                </a>
+            </li>
+            {% endif %}
 
-                <li>
-                    <a href = "/bid" style = "color:#FFFFFF">
-                        Bid Status
-                    </a>
-                </li>
->>>>>>> 37a5ef554987307b34576f141c9208980cfd5716
+            </li>
+
+            <li>
+                <a href="{{ url('app_phone_index') }}"class="nav-link">
+                    phones
+                </a>
+            </li>
+
+            <li>
+                <a href="/bid" class="nav-link">
+                    Bid Status
+                </a>
+
+            </li>
+            </li>
+            </li>
+
+        </ul>
         </ul>
     </nav>
 
@@ -121,14 +88,6 @@
                 </div>
             </div>
         </div>
-
-<div class ="movingImages">
-    <img src="{{ asset('images/phones.jpg') }}" alt="" >
-
-
-    </div>
-
-
 
     </body>
 </html>

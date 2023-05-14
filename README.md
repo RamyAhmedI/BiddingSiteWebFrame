@@ -35,7 +35,3 @@ php vendor/bin/codecept run
 ```
 
 
-<<<<<<< HEAD
-# Nav bar created, create comment page, shipping details button and log out button done 27/04/2023
-=======
->>>>>>> 37a5ef554987307b34576f141c9208980cfd5716
