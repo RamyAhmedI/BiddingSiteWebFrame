@@ -70,42 +70,18 @@
                     Products Listings
                 </a>
             </li>
-<<<<<<< HEAD
-
-            <li class="nav-item">
-            <a href="{{path('app_purchase_details_index')}}"class="nav-link">
-                Crud PurchaseDetails
-            </a>
-            </li>
-            <li class="nav-item">
-            <a href="{{path('app_make_comment_index')}}"class="nav-link">
-                Crud Make a Comment
-            </a>
-            </li>
-
-            <li class="nav-item">
-            <a href="{{path('app_bid_index')}}"class="nav-link">
-                Crud Bidding Page
-            </a>
-            </li>
-
-             {% if app.user %}
-                  <div class="mb-3">
-                   You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-                  </div>
-             {% endif %}
-=======
->>>>>>> 41303353db1a2eba253f074c01e9cfcf8699c528
             <li>
                 <a href="{{ url('app_make_comment_index') }}"  style = "color:#FFFFFF">
                     Forum
                 </a>
             </li>
+            {% if is_granted('ROLE_USER') %}
             <li>
                 <a href="{{ url('app_shipping_details_index') }}"  style = "color:#FFFFFF">
                     Shipping Details
                 </a>
             </li>
+            {%endif%}
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <li>
                     <a href="{{ url('app_logout') }}" style = "color:#FFFFFF">logout</a>
@@ -114,22 +90,32 @@
                 {% endif %}
                 </li>
 
-<<<<<<< HEAD
-                <li>
-                    <a href = "/bid" style = "color:#FFFFFF">
-                        Bid Status
-                    </a>
-                </li>
-=======
             {% if is_granted('ROLE_ADMIN') %}
             <li>
-                <a href="{{ path('app_login') }}" style = "color:#FFFFFF">
+                <a href="{{ path('app_user_index') }}" style = "color:#FFFFFF">
                     Manage Users
                 </a>
             </li>
             {% endif %}
 
->>>>>>> 41303353db1a2eba253f074c01e9cfcf8699c528
+            {% if is_granted('ROLE_USER') %}
+            <li>
+             <p style = "color:#FFFFFF">logged in as: {{ app.user.username }}</p>
+             </li>
+             {%endif%}
+
+             {% if is_granted('ROLE_SELLER') %}
+            <li>
+             <p style = "color:#FFFFFF">SELLER</p>
+             </li>
+             {%endif%}
+
+             {% if is_granted('ROLE_ADMIN') %}
+            <li>
+             <p style = "color:#FFFFFF">ADMIN</p>
+             </li>
+             {%endif%}
+
         </ul>
     </nav>
         <div class="container">

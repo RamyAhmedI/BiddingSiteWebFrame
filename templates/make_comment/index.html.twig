@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Comments</th>
+                <th>Reply</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -16,6 +17,8 @@
         {% for make_comment in make_comments %}
             <tr>
                 <td>{{ make_comment.MakeComment }}</td>
+                 <td>{{ make_comment.MakeReply }}</td>
+
                 <td>
                 {% if is_granted('ROLE_Admin') %}
                     <a href="{{ path('app_make_comment_show', {'id': make_comment.id}) }}">show</a>

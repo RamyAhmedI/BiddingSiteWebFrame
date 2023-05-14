@@ -16,8 +16,8 @@ class MakeComment
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $MakeComment = null;
 
-    #[ORM\ManyToOne]
-    private ?User $user = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $MakeReply = null;
 
     public function getId(): ?int
     {
@@ -36,14 +36,14 @@ class MakeComment
         return $this;
     }
 
-    public function getUser(): ?User
+    public function getMakeReply(): ?string
     {
-        return $this->user;
+        return $this->MakeReply;
     }
 
-    public function setUser(?User $user): self
+    public function setMakeReply(?string $MakeReply): self
     {
-        $this->user = $user;
+        $this->MakeReply = $MakeReply;
 
         return $this;
     }
