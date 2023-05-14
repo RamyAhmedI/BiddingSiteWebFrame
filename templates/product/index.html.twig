@@ -32,7 +32,10 @@
                 <td>{{ product.price }}</td>
                 <td>
                     <a href="{{ path('app_product_show', {'id': product.id}) }}">show</a>
+                    
+                    {% if is_granted('ROLE_ADMIN') %}
                     <a href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}

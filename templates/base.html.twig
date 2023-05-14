@@ -15,8 +15,6 @@
                 integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
                 crossorigin="anonymous"></script>
 
-        <link rel="stylesheet" href="/styles/app.css">
-
         {% block stylesheets %}
 {#            {{ encore_entry_link_tags('app') }}#}
         {% endblock %}
@@ -27,15 +25,11 @@
     </head>
     <body>
 
-
-    <nav class = "navbar navbar-expand-sm navbar-dark bg-primary mb-3">
+<nav class = "navbar navbar-expand-sm navbar-dark bg-primary mb-3">
         <div class = "collapse navbar-collapse" id="mobile.nav">
             <ul clas="navbar-nav ml-auto">
 
             <style>
-                body{
-                    background-color: white;
-                }
                 nav {
                     text-align: center;
                     margin: 0px 0 0 ;
@@ -57,20 +51,26 @@
                     font-weight: normal;
                     padding: 10px 10px;
                     font-size: 1.5em;
+                }
 
             </style>
 
-            <li>
-                <a href="/" style = "color:#FFFFFF" >
-                    Home Page
 
+
+
+
+        <ul>
+            <li>
+                <a href="/" style = "color:#FFFFFF">
+                    Home
                 </a>
             </li>
             <li>
-                <a href="{{ url('app_make_index') }}" style = "color:#FFFFFF" >
-                    CRUD make
+                <a href="{{ url('app_product_index') }}"  style = "color:#FFFFFF">
+                    Products Listings
                 </a>
             </li>
+<<<<<<< HEAD
 
             <li class="nav-item">
             <a href="{{path('app_purchase_details_index')}}"class="nav-link">
@@ -94,42 +94,51 @@
                    You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
                   </div>
              {% endif %}
+=======
+>>>>>>> 41303353db1a2eba253f074c01e9cfcf8699c528
             <li>
-                <a href="{{ url('app_phone_index') }}" style = "color:#FFFFFF">
-                    Phones
+                <a href="{{ url('app_make_comment_index') }}"  style = "color:#FFFFFF">
+                    Forum
                 </a>
             </li>
+            <li>
+                <a href="{{ url('app_shipping_details_index') }}"  style = "color:#FFFFFF">
+                    Shipping Details
+                </a>
+            </li>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <li>
-                    <a href = "/user" style = "color:#FFFFFF">
-                        Login
-                     </a>
+                    <a href="{{ url('app_logout') }}" style = "color:#FFFFFF">logout</a>
+                {% else %}
+                    <a href="{{ url('app_login') }}" style="color:#FFFFFF">login</a>
+                {% endif %}
                 </li>
 
+<<<<<<< HEAD
                 <li>
                     <a href = "/bid" style = "color:#FFFFFF">
                         Bid Status
                     </a>
                 </li>
+=======
+            {% if is_granted('ROLE_ADMIN') %}
+            <li>
+                <a href="{{ path('app_login') }}" style = "color:#FFFFFF">
+                    Manage Users
+                </a>
+            </li>
+            {% endif %}
+
+>>>>>>> 41303353db1a2eba253f074c01e9cfcf8699c528
         </ul>
     </nav>
-
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    {% block body %}
-
-                    {% endblock %}
+                    {% block body %}{% endblock %}
                 </div>
             </div>
         </div>
-
-<div class ="movingImages">
-    <img src="{{ asset('images/phones.jpg') }}" alt="" >
-
-
-    </div>
-
-
 
     </body>
 </html>

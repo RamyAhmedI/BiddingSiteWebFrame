@@ -21,6 +21,7 @@ security:
             logout:
                 path: app_logout
             custom_authenticator: App\Security\LoginFormAuthenticator
+            access_denied_handler: App\Security\AccessDeniedHandler
 
     access_control:
     # - { path: ^/admin, roles: ROLE_ADMIN }
