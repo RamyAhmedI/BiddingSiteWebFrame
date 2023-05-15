@@ -34,6 +34,9 @@ class Product
     #[ORM\Column]
     private ?float $price = null;
 
+    #[ORM\ManyToOne]
+    private ?Listing $product = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +122,18 @@ class Product
     public function setPrice(float $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    public function getProduct(): ?Listing
+    {
+        return $this->product;
+    }
+
+    public function setProduct(?Listing $product): self
+    {
+        $this->product = $product;
 
         return $this;
     }

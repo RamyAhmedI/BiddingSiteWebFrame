@@ -2,26 +2,30 @@
 
 namespace App\Form;
 
-use App\Entity\PurchaseDetails;
+use App\Entity\Listing;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PurchaseDetailsType extends AbstractType
+class ListingType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('productName')
-            ->add('price')
-            ->add('address')
+            ->add('stillAvailable')
+            ->add('minPrice')
+            ->add('setDate')
+            ->add('setTime')
+            ->add('timeLimit')
+            ->add('minimumBid')
+            ->add('listingDeleted')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => PurchaseDetails::class,
+            'data_class' => Listing::class,
         ]);
     }
 }

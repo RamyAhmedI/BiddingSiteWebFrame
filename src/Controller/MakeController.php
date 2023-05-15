@@ -10,7 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 #[Route('/make')]
+#[IsGranted('ROLE_Seller')]
 class MakeController extends AbstractController
 {
     #[Route('/', name: 'app_make_index', methods: ['GET'])]

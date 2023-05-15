@@ -8,22 +8,20 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Email</th>
+                <th>Id</th>
+                <th>ProductName</th>
+                <th>Price</th>
                 <th>Address</th>
-                <th>Product</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for shipping_detail in shipping_details %}
             <tr>
-                <td>{{ shipping_detail.name }}</td>
-                <td>{{ shipping_detail.phone }}</td>
-                <td>{{ shipping_detail.email }}</td>
+                <td>{{ shipping_detail.id }}</td>
+                <td>{{ shipping_detail.productName }}</td>
+                <td>{{ shipping_detail.price }}</td>
                 <td>{{ shipping_detail.address }}</td>
-                <td>{{ shipping_detail.product }}</td>
                 <td>
                     <a href="{{ path('app_shipping_details_show', {'id': shipping_detail.id}) }}">show</a>
                     <a href="{{ path('app_shipping_details_edit', {'id': shipping_detail.id}) }}">edit</a>
@@ -31,7 +29,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">no records found</td>
+                <td colspan="5">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

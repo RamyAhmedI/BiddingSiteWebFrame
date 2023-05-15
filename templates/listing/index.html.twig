@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listing index{% endblock %}
+
+{% block body %}
+    <h1>Listing index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>StillAvailable</th>
+                <th>MinPrice</th>
+                <th>SetDate</th>
+                <th>SetTime</th>
+                <th>TimeLimit</th>
+                <th>MinimumBid</th>
+                <th>ListingDeleted</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for listing in listings %}
+            <tr>
+                <td>{{ listing.id }}</td>
+                <td>{{ listing.stillAvailable ? 'Yes' : 'No' }}</td>
+                <td>{{ listing.minPrice }}</td>
+                <td>{{ listing.setDate }}</td>
+                <td>{{ listing.setTime }}</td>
+                <td>{{ listing.timeLimit }}</td>
+                <td>{{ listing.minimumBid }}</td>
+                <td>{{ listing.listingDeleted ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_listing_show', {'id': listing.id}) }}">show</a>
+                    <a href="{{ path('app_listing_edit', {'id': listing.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_listing_new') }}">Create new</a>
+{% endblock %}

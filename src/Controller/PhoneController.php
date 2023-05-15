@@ -10,7 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 #[Route('/phone')]
+#[IsGranted('ROLE_SELLER')]
 class PhoneController extends AbstractController
 {
     #[Route('/', name: 'app_phone_index', methods: ['GET'])]

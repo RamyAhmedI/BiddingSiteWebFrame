@@ -27,10 +27,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 41303353db1a2eba253f074c01e9cfcf8699c528
     public function getId(): ?int
     {
         return $this->id;
