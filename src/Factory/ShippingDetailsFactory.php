@@ -48,7 +48,10 @@ final class ShippingDetailsFactory extends ModelFactory
     {
         return [
             'address' => self::faker()->text(255),
+            'email' => self::faker()->text(255),
+            'phone' => self::faker()->randomNumber(),
             'price' => self::faker()->randomFloat(),
+            'product' => self::faker()->text(255),
             'productName' => self::faker()->text(255),
         ];
     }

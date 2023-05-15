@@ -6,7 +6,6 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
 use App\Factory\UserFactory;
-<<<<<<< HEAD
 
 use App\Factory\ShippingDetailsFactory;
 use App\Factory\MakeCommentFactory;
@@ -14,23 +13,16 @@ use App\Factory\ListingFactory;
 use App\Factory\ProductFactory;
 
 use App\Entity\Bid;
+
 use App\Factory\PhoneFactory;
 use App\Factory\MakeFactory;
 
-=======
-use App\Factory\PhoneFactory;
-use App\Factory\MakeFactory;
 
-use App\Factory\CampusFactory;
-use App\Factory\StudentFactory;
->>>>>>> 2c972367fd192714e38dd911da82b8b54eea4b86
 
 class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-<<<<<<< HEAD
-
         $bid1 = new Bid();
         $bid1->setDate("19/04/2023");
         $bid1->setCancel("false");
@@ -54,13 +46,19 @@ class AppFixtures extends Fixture
         $mattDetails01 = ShippingDetailsFactory::createOne([
             'address' => 'Dublin',
             'price' => 200,
-            'productName' => 'TV',
+            'productName' => 'Iphone',
+            'email' => "Mat@gmail.com",
+            'phone' => 3345,
+            'product' => "Iphone X",
         ]);
 
         ShippingDetailsFactory::createOne([
             'address' => 'Cork',
             'price' => 400,
-            'productName' => 'TV',
+            'productName' => 'Samsung',
+            'email' => "joe@gmail.com",
+            'phone' => 3345,
+            'product' => "S10",
         ]);
 
         $listing01 = ListingFactory::createOne([
@@ -87,26 +85,14 @@ class AppFixtures extends Fixture
 
         MakeCommentFactory::createOne([
             'makecomment' => 'Hi',
+            'MakeReply' => 'Reply',
             'user' => $matt,
         ]);
 
         MakeCommentFactory::createOne([
             'makecomment' => 'Hello',
             'user' => $joe,
-=======
-        UserFactory::createOne([
-            'username' => 'matt',
-            'password' => 'smith',
-            'role' => 'ROLE_ADMIN'
->>>>>>> 2c972367fd192714e38dd911da82b8b54eea4b86
         ]);
-
-        UserFactory::createOne([
-            'username' => 'john',
-            'password' => 'doe',
-            'role' => 'ROLE_ADMIN'
-        ]);
-
 
         MakeFactory::createOne(['name' => 'Apple']);
         MakeFactory::createOne(['name' => 'Samsung']);

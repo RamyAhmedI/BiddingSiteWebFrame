@@ -1,10 +1,7 @@
 <?php
 
 namespace App\Controller;
-<<<<<<< HEAD
-=======
 
->>>>>>> 2c972367fd192714e38dd911da82b8b54eea4b86
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

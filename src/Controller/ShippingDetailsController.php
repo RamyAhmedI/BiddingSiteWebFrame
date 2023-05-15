@@ -10,14 +10,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-<<<<<<< HEAD
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 #[Route('/shipping/details')]
 #[IsGranted('ROLE_USER')]
-=======
 #[Route('/shipping/details')]
->>>>>>> 2c972367fd192714e38dd911da82b8b54eea4b86
+
 class ShippingDetailsController extends AbstractController
 {
     #[Route('/', name: 'app_shipping_details_index', methods: ['GET'])]
