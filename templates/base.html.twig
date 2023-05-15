@@ -69,11 +69,8 @@
                 <a href="{{ url('app_product_index') }}"  style = "color:#FFFFFF">
                     Products Listings
                 </a>
-<<<<<<< HEAD
             </li
-=======
             </li>
->>>>>>> 2c972367fd192714e38dd911da82b8b54eea4b86
             <li>
                 <a href="{{ url('app_make_comment_index') }}"  style = "color:#FFFFFF">
                     Forum
@@ -90,23 +87,19 @@
             {%endif%}
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <li>
-                     <div class="mb-3">
-                     You are logged in as {{ app.user.username }}, <a href="{{ url('app_logout') }}" style = "color:#FFFFFF">logout</a>
-                    </div>
+                     <a href="{{ url('app_logout') }}" style = "color:#FFFFFF">logout</a>
+            
                 {% else %}
                     <a href="{{ url('app_login') }}" style="color:#FFFFFF">login</a>
                 {% endif %}
                 </li>
 
-<<<<<<< HEAD
                 <li>
                     <a href = "/bid" style = "color:#FFFFFF">
                         Bid Status
                     </a>
                 </li>
 
-=======
->>>>>>> 2c972367fd192714e38dd911da82b8b54eea4b86
             {% if is_granted('ROLE_ADMIN') %}
             <li>
                 <a href="{{ path('app_user_index') }}" style = "color:#FFFFFF">
@@ -114,8 +107,6 @@
                 </a>
             </li>
             {% endif %}
-<<<<<<< HEAD
-=======
 
             {% if is_granted('ROLE_USER') %}
             <li>
@@ -134,8 +125,6 @@
              <p style = "color:#FFFFFF">ADMIN</p>
              </li>
              {%endif%}
-
->>>>>>> 2c972367fd192714e38dd911da82b8b54eea4b86
         </ul>
     </nav>
         <div class="container">

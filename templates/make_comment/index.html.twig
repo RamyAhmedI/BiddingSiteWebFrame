@@ -3,32 +3,31 @@
 {% block title %}MakeComment index{% endblock %}
 
 {% block body %}
-    <h1>Forum</h1>
+    <h1>MakeComment index</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Comments</th>
-                <th>Reply</th>
+                <th>Id</th>
+                <th>MakeComment</th>
+                <th>MakeReply</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for make_comment in make_comments %}
             <tr>
+                <td>{{ make_comment.id }}</td>
                 <td>{{ make_comment.MakeComment }}</td>
-                 <td>{{ make_comment.MakeReply }}</td>
-
+                <td>{{ make_comment.MakeReply }}</td>
                 <td>
-                {% if is_granted('ROLE_Admin') %}
                     <a href="{{ path('app_make_comment_show', {'id': make_comment.id}) }}">show</a>
-                {% endif %}    
                     <a href="{{ path('app_make_comment_edit', {'id': make_comment.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="4">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

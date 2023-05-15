@@ -91,6 +91,7 @@ class AppFixtures extends Fixture
 
         MakeCommentFactory::createOne([
             'makecomment' => 'Hello',
+            'MakeReply' => 'Reply',
             'user' => $joe,
         ]);
 
