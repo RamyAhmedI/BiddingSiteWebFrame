@@ -69,12 +69,17 @@
                 <a href="{{ url('app_product_index') }}"  style = "color:#FFFFFF">
                     Products Listings
                 </a>
+<<<<<<< HEAD
             </li
+=======
+            </li>
+>>>>>>> 2c972367fd192714e38dd911da82b8b54eea4b86
             <li>
                 <a href="{{ url('app_make_comment_index') }}"  style = "color:#FFFFFF">
                     Forum
                 </a>
             </li>
+            {% if is_granted('ROLE_USER') %}
             <li>
             {% if app.user %}
                 <a href="{{ url('app_shipping_details_index') }}"  style = "color:#FFFFFF">
@@ -82,6 +87,7 @@
                 </a>
             {% endif %}
             </li>
+            {%endif%}
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <li>
                      <div class="mb-3">
@@ -92,19 +98,44 @@
                 {% endif %}
                 </li>
 
+<<<<<<< HEAD
                 <li>
                     <a href = "/bid" style = "color:#FFFFFF">
                         Bid Status
                     </a>
                 </li>
 
+=======
+>>>>>>> 2c972367fd192714e38dd911da82b8b54eea4b86
             {% if is_granted('ROLE_ADMIN') %}
             <li>
-                <a href="{{ path('app_login') }}" style = "color:#FFFFFF">
+                <a href="{{ path('app_user_index') }}" style = "color:#FFFFFF">
                     Manage Users
                 </a>
             </li>
             {% endif %}
+<<<<<<< HEAD
+=======
+
+            {% if is_granted('ROLE_USER') %}
+            <li>
+             <p style = "color:#FFFFFF">logged in as: {{ app.user.username }}</p>
+             </li>
+             {%endif%}
+
+             {% if is_granted('ROLE_SELLER') %}
+            <li>
+             <p style = "color:#FFFFFF">SELLER</p>
+             </li>
+             {%endif%}
+
+             {% if is_granted('ROLE_ADMIN') %}
+            <li>
+             <p style = "color:#FFFFFF">ADMIN</p>
+             </li>
+             {%endif%}
+
+>>>>>>> 2c972367fd192714e38dd911da82b8b54eea4b86
         </ul>
     </nav>
         <div class="container">

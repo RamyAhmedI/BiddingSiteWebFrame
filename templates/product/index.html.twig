@@ -8,7 +8,9 @@
     <table class="table">
         <thead>
             <tr>
+            {% if is_granted('ROLE_ADMIN') %}
                 <th>Id</th>
+                {% endif %}
                 <th>ProductName</th>
                 <th>ProductMake</th>
                 <th>ProductStorageSize</th>
@@ -22,7 +24,9 @@
         <tbody>
         {% for product in products %}
             <tr>
+            {% if is_granted('ROLE_ADMIN') %}
                 <td>{{ product.id }}</td>
+                {% endif %}
                 <td>{{ product.productName }}</td>
                 <td>{{ product.productMake }}</td>
                 <td>{{ product.productStorageSize }}</td>
@@ -33,7 +37,7 @@
                 <td>
                     <a href="{{ path('app_product_show', {'id': product.id}) }}">show</a>
                     
-                    {% if is_granted('ROLE_ADMIN') %}
+                    {% if is_granted('ROLE_ADMIN' or 'ROLE_SELLER') %}
                     <a href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>
                     {% endif %}
                 </td>
@@ -45,6 +49,12 @@
         {% endfor %}
         </tbody>
     </table>
-
+    {% if is_granted('ROLE_SELLER') %}
     <a href="{{ path('app_product_new') }}">Create new</a>
+    {%endif%}
+
+
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('app_product_new') }}">Create new</a>
+    {%endif%}
 {% endblock %}

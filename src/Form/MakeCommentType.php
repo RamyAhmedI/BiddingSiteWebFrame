@@ -13,6 +13,7 @@ class MakeCommentType extends AbstractType
     {
         $builder
             ->add('MakeComment')
+            ->add('MakeReply')
         ;
     }
 

@@ -1,31 +1,37 @@
-THE FINAL VERSION PROJECT
+# CRUD quickstart project
 
-## What does the Website do?
+## Setup
 
-* The Website allows the users to login as either admin/user/seller.
-* You can make a Bid for each of the phones. 
-* View the listing of each of the phones.
-* Users can ask questions and make comments about the site or phone.
-* Users can view the shipping details.
-  
-  ## What can the ROLE_ADMIN do? 
-  
-* The Admin can view the users and can delete the users.	
-* Can View and edit the listings for each of the phones.
-* Admin can moderate the chats such as delete chats and messages users 
+To start working with this project you will need to:
 
-  ## What can the ROLE_USER do? 
-  
-* View listing of the phones.
-* make a bid of the phones and add the amount to the bid.
-* Can ask Questions on the form.
-* can View the Bid Status 
-* provide shipment details 
-   
-   ## What can the ROLE_SELLER do?
-   
-* he seller can list the phones that they want to sell.
-* view the listings and remove listings.
+- update `.env` with your MySQL credentials
+- ensure the `migrations` folder exist, and is EMPTY!
+- create the database with `symfony console d:d:c`
+- create the SQL table creation (migration) code with `symfony console ma:mi`
+- execute the SQL table creation (migration) code with `symfony console d:m:m`
+- load the initial data (fixtures) into the DB with  `symfony console d:f:l`
 
+## Run the web server
+
+Run the Symfony web server with:
+```bash
+symfony serve
+```
+
+
+## BONUS - setup for testing
+
+If you want to try out some of the tests (in folder `tests`) you'll need to set up the test environment database by doing the follow:
+
+- create the database with `symfony console d:d:c --env=test`
+- execute the (existing) SQL table creation (migrations) code with `symfony console --env=test`
+- load the initial data (fixtures) into the DB with  `symfony console d:f:l --env=test`
+
+## Run the tests
+
+Run the Symfony web server with:
+```bash
+php vendor/bin/codecept run
+```
 
 
