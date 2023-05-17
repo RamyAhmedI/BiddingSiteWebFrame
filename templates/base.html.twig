@@ -69,7 +69,6 @@
                 <a href="{{ url('app_product_index') }}"  style = "color:#FFFFFF">
                     Products Listings
                 </a>
-            </li
             </li>
             <li>
                 <a href="{{ url('app_make_comment_index') }}"  style = "color:#FFFFFF">
@@ -78,26 +77,17 @@
             </li>
             {% if is_granted('ROLE_USER') %}
             <li>
-            {% if app.user %}
                 <a href="{{ url('app_shipping_details_index') }}"  style = "color:#FFFFFF">
                     Shipping Details
                 </a>
-            {% endif %}
             </li>
             {%endif%}
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <li>
-                     <a href="{{ url('app_logout') }}" style = "color:#FFFFFF">logout</a>
-            
+                    <a href="{{ url('app_logout') }}" style = "color:#FFFFFF">logout</a>
                 {% else %}
                     <a href="{{ url('app_login') }}" style="color:#FFFFFF">login</a>
                 {% endif %}
-                </li>
-
-                <li>
-                    <a href = "/bid" style = "color:#FFFFFF">
-                        Bid Status
-                    </a>
                 </li>
 
             {% if is_granted('ROLE_ADMIN') %}
@@ -125,6 +115,7 @@
              <p style = "color:#FFFFFF">ADMIN</p>
              </li>
              {%endif%}
+
         </ul>
     </nav>
         <div class="container">

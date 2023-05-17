@@ -12,9 +12,12 @@ class ShippingDetailsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('productName')
-            ->add('price')
+            ->add('name')
+            ->add('phone')
+            ->add('email')
             ->add('address')
+            ->add('product')
+            ->add('price')
         ;
     }
 

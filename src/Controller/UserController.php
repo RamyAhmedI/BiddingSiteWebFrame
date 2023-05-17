@@ -14,7 +14,6 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 #[Route('/user')]
-#[IsGranted('ROLE_USER')]
 #[IsGranted('ROLE_ADMIN')]
 class UserController extends AbstractController
 {
@@ -32,7 +31,7 @@ class UserController extends AbstractController
             'users' => $userRepository->findAll(),
         ]);
     }
-    #[IsGranted('ROLE_ADMIN')]
+
     #[Route('/new', name: 'app_user_new', methods: ['GET', 'POST'])]
     public function new(Request $request, UserRepository $userRepository): Response
     {

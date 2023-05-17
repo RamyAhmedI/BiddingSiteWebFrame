@@ -8,9 +8,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>ProductName</th>
-                <th>Price</th>
+                <th>Name</th>
                 <th>Phone</th>
                 <th>Email</th>
                 <th>Address</th>
@@ -21,9 +19,7 @@
         <tbody>
         {% for shipping_detail in shipping_details %}
             <tr>
-                <td>{{ shipping_detail.id }}</td>
-                <td>{{ shipping_detail.productName }}</td>
-                <td>{{ shipping_detail.price }}</td>
+                <td>{{ shipping_detail.name }}</td>
                 <td>{{ shipping_detail.phone }}</td>
                 <td>{{ shipping_detail.email }}</td>
                 <td>{{ shipping_detail.address }}</td>
@@ -41,5 +37,7 @@
         </tbody>
     </table>
 
+    {% if is_granted('ROLE_ADMIN') %}
     <a href="{{ path('app_shipping_details_new') }}">Create new</a>
+    {% endif %}
 {% endblock %}

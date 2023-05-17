@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\ShippingDetails;
-use App\Form\ShippingDetails1Type;
+use App\Form\ShippingDetailsType;
 use App\Repository\ShippingDetailsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,7 +25,7 @@ class ShippingDetailsController extends AbstractController
     public function new(Request $request, ShippingDetailsRepository $shippingDetailsRepository): Response
     {
         $shippingDetail = new ShippingDetails();
-        $form = $this->createForm(ShippingDetails1Type::class, $shippingDetail);
+        $form = $this->createForm(ShippingDetailsType::class, $shippingDetail);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -51,7 +51,7 @@ class ShippingDetailsController extends AbstractController
     #[Route('/{id}/edit', name: 'app_shipping_details_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, ShippingDetails $shippingDetail, ShippingDetailsRepository $shippingDetailsRepository): Response
     {
-        $form = $this->createForm(ShippingDetails1Type::class, $shippingDetail);
+        $form = $this->createForm(ShippingDetailsType::class, $shippingDetail);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\MakeComment;
-use App\Form\MakeComment1Type;
+use App\Form\MakeCommentType;
 use App\Repository\MakeCommentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,7 +25,7 @@ class MakeCommentController extends AbstractController
     public function new(Request $request, MakeCommentRepository $makeCommentRepository): Response
     {
         $makeComment = new MakeComment();
-        $form = $this->createForm(MakeComment1Type::class, $makeComment);
+        $form = $this->createForm(MakeCommentType::class, $makeComment);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -51,7 +51,7 @@ class MakeCommentController extends AbstractController
     #[Route('/{id}/edit', name: 'app_make_comment_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, MakeComment $makeComment, MakeCommentRepository $makeCommentRepository): Response
     {
-        $form = $this->createForm(MakeComment1Type::class, $makeComment);
+        $form = $this->createForm(MakeCommentType::class, $makeComment);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

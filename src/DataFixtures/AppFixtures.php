@@ -6,114 +6,132 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
 use App\Factory\UserFactory;
-
-use App\Factory\ShippingDetailsFactory;
 use App\Factory\MakeCommentFactory;
-use App\Factory\ListingFactory;
+use App\Factory\ShippingDetailsFactory;
 use App\Factory\ProductFactory;
-
-use App\Entity\Bid;
-
-use App\Factory\PhoneFactory;
-use App\Factory\MakeFactory;
-
-
 
 class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        $bid1 = new Bid();
-        $bid1->setDate("19/04/2023");
-        $bid1->setCancel("false");
-        $bid1->setTime("3");
-        $bid1->setBidStatus("ongoing");
-
-        $manager->persist($bid1);
-
-        $matt = UserFactory::createOne([
-
+        UserFactory::createOne([
             'username' => 'matt',
             'password' => 'smith',
-            'role' => 'ROLE_ADMIN',
+            'role' => 'ROLE_ADMIN'
         ]);
 
-        $joe = UserFactory::createOne([
-            'username' => 'john',
-            'password' => 'doe',
-            'role' => 'ROLE_ADMIN',
+        UserFactory::createOne([
+            'username' => 'big',
+            'password' => 'man',
+            'role' => 'ROLE_ADMIN'
         ]);
-        $mattDetails01 = ShippingDetailsFactory::createOne([
-            'address' => 'Dublin',
-            'price' => 200,
-            'productName' => 'Iphone',
-            'email' => "Mat@gmail.com",
-            'phone' => 3345,
-            'product' => "Iphone X",
+
+        UserFactory::createOne([
+            'username' => 'seller',
+            'password' => 'seller',
+            'role' => 'ROLE_SELLER'
+        ]);
+
+        UserFactory::createOne([
+            'username' => 'user',
+            'password' => 'user',
+            'role' => 'ROLE_USER'
+        ]);
+
+        MakeCommentFactory::createOne([
+            'MakeComment' => 'How heavy is the iPhone 14?',
+            'MakeReply' => 'In or Around 172g',
+        ]);
+
+        MakeCommentFactory::createOne([
+            'MakeComment' => 'Is the iPhone X waterproof?',
+            'MakeReply' => 'The iPhone X can handle being submerged into pools of water no deeper than 2 meters',
+        ]);
+
+        MakeCommentFactory::createOne([
+            'MakeComment' => 'If I win the bid when does the phone arrive?',
+            'MakeReply' => 'The phone should arrive within 5-7 business days',
         ]);
 
         ShippingDetailsFactory::createOne([
-            'address' => 'Cork',
-            'price' => 400,
-            'productName' => 'Samsung',
-            'email' => "joe@gmail.com",
-            'phone' => 3345,
-            'product' => "S10",
-        ]);
-
-        $listing01 = ListingFactory::createOne([
-            'listingDeleted' => true,
-            'minPrice' => 200.00,
-            'minimumBid' => 2.00,
-            'setDate' => 2023,
-            'setTime' => 15.00,
-            'stillAvailable' => true,
-            'timeLimit' => 4.00,
-            'user' => $matt,
-            'shippingdetails' => $mattDetails01,
+            'address' => '123 private details here street',
+            'email' => 'bobsemail@email.com',
+            'name' => 'bob',
+            'phone' => '089345878',
+            'price' => '1000.40',
+            'product' => 'iPhone 14',
         ]);
 
         ProductFactory::createOne([
-            'bidStatus' => 'active',
-            'price' => 200.00,
-            'productMake' => 'Iphone',
-            'productName' => 'Iphone X',
+            'bidStatus' => 'Ongoing',
+            'price' => '994.90',
+            'productMake' => 'Apple',
+            'productName' => 'iPhone 14',
             'productOS' => 'IOS',
-            'productStorageSize' => 60,
-            'product' => $listing01,
+            'productStorageSize' => '256',
         ]);
 
-        MakeCommentFactory::createOne([
-            'makecomment' => 'Hi',
-            'MakeReply' => 'Reply',
-            'user' => $matt,
+        ProductFactory::createOne([
+            'bidStatus' => 'Ongoing',
+            'price' => '394.40',
+            'productMake' => 'Samsung',
+            'productName' => 'Samsung A21',
+            'productOS' => 'Android',
+            'productStorageSize' => '64',
         ]);
 
-        MakeCommentFactory::createOne([
-            'makecomment' => 'Hello',
-            'MakeReply' => 'Reply',
-            'user' => $joe,
+        ProductFactory::createOne([
+            'bidStatus' => 'Ongoing',
+            'price' => '494.90',
+            'productMake' => 'Apple',
+            'productName' => 'iPhone 11 Pro',
+            'productOS' => 'IOS',
+            'productStorageSize' => '256',
         ]);
 
-        MakeFactory::createOne(['name' => 'Apple']);
-        MakeFactory::createOne(['name' => 'Samsung']);
-        MakeFactory::createOne(['name' => 'Sony']);
-
-        PhoneFactory::createOne([
-            'model' => 'iPhone X',
-            'memory' => '128',
-            'manufacturer' => MakeFactory::find(['name' => 'Apple']),
-            'OSType' => 'IOS',
-            'Price' => '200',
+        ProductFactory::createOne([
+            'bidStatus' => 'Ongoing',
+            'price' => '194.10',
+            'productMake' => 'Sony',
+            'productName' => 'Sony XPeria 10',
+            'productOS' => 'Android',
+            'productStorageSize' => '32',
         ]);
 
-        PhoneFactory::createOne([
-            'model' => 'Galaxy 21',
-            'memory' => '256',
-            'manufacturer' => MakeFactory::find(['name' => 'Samsung']),
-            'OSType' => 'Android',
-            'Price' => '200',
+        ProductFactory::createOne([
+            'bidStatus' => 'Ongoing',
+            'price' => '100.50',
+            'productMake' => 'Samsung',
+            'productName' => 'Samsung S22',
+            'productOS' => 'Android',
+            'productStorageSize' => '101',
         ]);
 
+        ProductFactory::createOne([
+            'bidStatus' => 'Ongoing',
+            'price' => '203.67',
+            'productMake' => 'Sony',
+            'productName' => 'Sony XPeria 5 Gen 3',
+            'productOS' => 'Android',
+            'productStorageSize' => '128',
+        ]);
+
+        ProductFactory::createOne([
+            'bidStatus' => 'Ongoing',
+            'price' => '594.34',
+            'productMake' => 'Apple',
+            'productName' => 'iPhone 13 Max',
+            'productOS' => 'IOS',
+            'productStorageSize' => '128',
+        ]);
+
+        ProductFactory::createOne([
+            'bidStatus' => 'Ongoing',
+            'price' => '90.45',
+            'productMake' => 'Samsung',
+            'productName' => 'Samsung S20',
+            'productOS' => 'Android',
+            'productStorageSize' => '101',
+        ]);
     }
 }
