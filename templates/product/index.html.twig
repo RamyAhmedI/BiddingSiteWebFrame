@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product index{% endblock %}
+
+{% block body %}
+    <h1>Product index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+            {% if is_granted('ROLE_ADMIN') %}
+                <th>Id</th>
+                {% endif %}
+                <th>ProductName</th>
+                <th>ProductMake</th>
+                <th>ProductStorageSize</th>
+                <th>ProductOS</th>
+                <th>BidStatus</th>
+                <th>BidAmount</th>
+                <th>Price</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+            {% if is_granted('ROLE_ADMIN') %}
+                <td>{{ product.id }}</td>
+                {% endif %}
+                <td>{{ product.productName }}</td>
+                <td>{{ product.productMake }}</td>
+                <td>{{ product.productStorageSize }}</td>
+                <td>{{ product.productOS }}</td>
+                <td>{{ product.bidStatus }}</td>
+                <td>{{ product.bidAmount }}</td>
+                <td>{{ product.price }}</td>
+                <td>
+                    <a href="{{ path('app_product_show', {'id': product.id}) }}">show</a>
+                    
+                    {% if is_granted('ROLE_ADMIN' or 'ROLE_SELLER') %}
+                    <a href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% if is_granted('ROLE_SELLER') %}
+    <a href="{{ path('app_product_new') }}">Create new</a>
+    {%endif%}
+
+
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('app_product_new') }}">Create new</a>
+    {%endif%}
+{% endblock %}
